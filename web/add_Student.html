@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Student Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Add Student</h1>
+        <p>Please fill the information to add a Student</p>
+        <form action="AddStudentServlet.do" method="POST" enctype="multipart/form-data">
+            <table>
+            <tbody>
+                    <tr>
+                        <td>Student Number:</td>
+                        <td><input type="text" name="stud_number" required=""></td>
+                    </tr>
+                    <tr>
+                        <td>Student Name:</td>
+                        <td><input type="text" name="stud_name" required=""></td>
+                    </tr>
+                    <tr>
+                        <td>Student Age:</td>
+                        <td><input type="text" name="stud_age" required=""></td>
+                    </tr>
+                    <tr>
+                        <td>Student Gender:</td>
+                        <td>
+                            <select name="stud_gender" required="">
+                                <option></option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Student Subjects: </td>
+                        <td> 
+                            <div id="subjectDiv">
+                            <input type="text" name="stud_subjects" required="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                         <input type="button" onclick="addSubject()" value="Add Another Subject">  
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Student Image(s): </td>
+                        <td><input type="file" required="" name="image" multiple="" accept="image/*"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Add Student"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <script>
+              function addSubject() {
+                  var subjectDiv = document.getElementById("subjectDiv");
+                  var newElement = document.createElement("input");
+                  newElement.type = "text";
+                  newElement.name = "stud_subjects";
+                  newElement.required = true;
+                  newElement.placeholder = "New Subject";
+                  subjectDiv.appendChild(document.createElement("br"));
+                  subjectDiv.appendChild(newElement);
+              }
+            </script>
+            <p>Please click <a href="menu.html">here</a> to go back to menu or <a href="EndSessionServlet.do">here</a> to logout</p>
+
+        </form>
+    </body>
+</html>
